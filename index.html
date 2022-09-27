@@ -2,10 +2,12 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts limit:5 %}
-    <article class="post">
-      <a href="{{ site.baseurl }}{{ post.url }}"><h1>{{ post.title }}</h1></a>
-    </article>
-  {% endfor %}
+<style>
+#main {font-weight:lighter}
+</style>
+
+<div id='main'>
+{% for post in site.categories.a limit:100 %}
+<a href='{{ post.url | prepend: site.baseurl | prepend: site.url }}'>{{ post.title | xml_escape }}</a><br>
+{% endfor %}
 </div>
